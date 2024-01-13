@@ -1,0 +1,444 @@
+<!DOCTYPE html><html lang="zh-Hans" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>240112 Report Draft of upstream | Monica’s home</title><meta name="author" content="Monica"><meta name="copyright" content="Monica"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="本文不宜阅读，是无配图的口水稿。240112汇报参考，仅留档用。 这次讲解分为五个部分：先从上次内容引入，随后介绍一点背景知识，Set up讲一下安装准备，Preparation部分是模拟数据的分析为之后的真实分析做准备。最后是对本次内容进行总结。  Introduction 首先，回顾一下我们上次讲的内容：  在上次提到的workflow中介绍的上游分析的部分，包括关于如何从FASTQ文件开始，">
+<meta property="og:type" content="article">
+<meta property="og:title" content="240112 Report Draft of upstream">
+<meta property="og:url" content="http://www.monig.cn/2024/01/12/test_240113/index.html">
+<meta property="og:site_name" content="Monica’s home">
+<meta property="og:description" content="本文不宜阅读，是无配图的口水稿。240112汇报参考，仅留档用。 这次讲解分为五个部分：先从上次内容引入，随后介绍一点背景知识，Set up讲一下安装准备，Preparation部分是模拟数据的分析为之后的真实分析做准备。最后是对本次内容进行总结。  Introduction 首先，回顾一下我们上次讲的内容：  在上次提到的workflow中介绍的上游分析的部分，包括关于如何从FASTQ文件开始，">
+<meta property="og:locale">
+<meta property="og:image" content="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png">
+<meta property="article:published_time" content="2024-01-12T12:30:00.000Z">
+<meta property="article:modified_time" content="2024-01-13T12:40:00.000Z">
+<meta property="article:author" content="Monica">
+<meta property="article:tag" content="do-not-read">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://www.monig.cn/2024/01/12/test_240113/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=4.12.0"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.32/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":230},
+  copy: {
+    success: 'Copy Successful',
+    error: 'Copy Error',
+    noSupport: 'Browser Not Supported'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: 'Just now',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.11.0/dist/infinitegrid.min.js',
+    buttonText: 'Load More'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: true
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '240112 Report Draft of upstream',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: false,
+  postUpdate: '2024-01-13 20:40:00'
+}</script><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+          const isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches
+          const isNotSpecified = window.matchMedia('(prefers-color-scheme: no-preference)').matches
+          const hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+
+          if (t === undefined) {
+            if (isLightMode) activateLightMode()
+            else if (isDarkMode) activateDarkMode()
+            else if (isNotSpecified || hasNoSupport) {
+              const now = new Date()
+              const hour = now.getHours()
+              const isNight = hour <= 6 || hour >= 18
+              isNight ? activateDarkMode() : activateLightMode()
+            }
+            window.matchMedia('(prefers-color-scheme: dark)').addListener(e => {
+              if (saveToLocal.get('theme') === undefined) {
+                e.matches ? activateDarkMode() : activateLightMode()
+              }
+            })
+          } else if (t === 'light') activateLightMode()
+          else activateDarkMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><meta name="generator" content="Hexo 6.3.0"></head><body><script>window.paceOptions = {
+  restartOnPushState: false
+}
+
+document.addEventListener('pjax:send', () => {
+  Pace.restart()
+})
+</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pace-js@1.2.4/themes/blue/pace-theme-minimal.min.css"/><script src="https://cdn.jsdelivr.net/npm/pace-js@1.2.4/pace.min.js"></script><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">2</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">1</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">0</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="Monica’s home"><span class="site-name">Monica’s home</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div id="post"><div id="post-info"><h1 class="post-title">240112 Report Draft of upstream</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2024-01-12T12:30:00.000Z" title="Created 2024-01-12 20:30:00">2024-01-12</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2024-01-13T12:40:00.000Z" title="Updated 2024-01-13 20:40:00">2024-01-13</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">Word Count:</span><span class="word-count">4.3k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">Reading Time:</span><span>13mins</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="240112 Report Draft of upstream"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post Views:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div><article class="post-content" id="article-container"><p>本文不宜阅读，是无配图的口水稿。240112汇报参考，仅留档用。</p>
+<p>这次讲解分为五个部分：先从上次内容引入，随后介绍一点背景知识，Set up讲一下安装准备，Preparation部分是模拟数据的分析为之后的真实分析做准备。最后是对本次内容进行总结。</p>
+<hr>
+<p><strong>Introduction</strong></p>
+<p>首先，回顾一下我们上次讲的内容：</p>
+<ul>
+<li>在上次提到的workflow中介绍的上游分析的部分，包括关于如何从FASTQ文件开始，量化到参考转录本，并准备基因水平的数据来用于下游分析，这些上游分析的部分在上次都没有进行学习和介绍。这次则主要介绍这部分内容。</li>
+<li>那么对应到这个总流程图里面，这是师兄发的一个review里面给的图，非常好看。ABC三种实线代表了三种主流的workflow，虚线的部分是一些常用的其他工具。</li>
+<li>在上次介绍的workflow中提到的是使用salmon完成这一部分的，可以看出，我们上次介绍的workflow是B。</li>
+<li>不过，上次完成的只是从txi数据开始，通过tximeta得到一个SummarizedExperiment，从而得到DESeqDataSet，进而完成后面的探索性分析和差异基因分析，相当于完成了A，B两种路线共同后半部分。</li>
+<li>但我们这次并不会继续完成B路线，而是改成了A路线。因为师兄不建议我最开始跟着这个workflow做，而是建议从好读一点的biostar开始。</li>
+</ul>
+<hr>
+<p><strong>Where to start?</strong></p>
+<ul>
+<li>直接跳转到biostar（21版）的RNA-seq部分，它告诉我这一部分单独写了一本书，这哪里难得到我，直接打开18版，果然这版写在书里。</li>
+<li>它以独立的小问题完成了介绍、名词解释、统计等简介，因而，我先选择这部分提到的几个比较重要的小问题来介绍一点背景知识。</li>
+</ul>
+<hr>
+<ul>
+<li>什么是isoform？</li>
+<li>指从同一基因座产生的 mRNA，但是转录起始位点（TSS）、编码蛋白质的 DNA 序列（CDS）和非翻译区（UTR）不同，可能会改变基因功能。图中就是一个基因的三种isoform。</li>
+</ul>
+<hr>
+<ul>
+<li>存在哪些类型的剪接事件？</li>
+<li>提到有5种基本模式。跳过外显子，互斥外显子，替代5’或3’位点，内含子保留等，图示了一下什么是跳过外显子，替代5’或3’位点。</li>
+</ul>
+<hr>
+<ul>
+<li>什么是剪切感知对齐器？</li>
+<li>来自两个外显子连接位置（即所谓的剪接位点）的读数会与基因组对齐，但它们之间会有很大的空隙（内含子）。这就是所谓的剪接比对。</li>
+<li>因此，要将 RNA-Seq 数据与基因组对齐，我们需要使用 “剪接感知 “对齐器。这些对齐器能够在不影响对齐的情况下，对齐中间有很大空隙的读数。但是只有相邻外显子被连接的信息，我们能看的的只是连接点，只能得到部分信息。所以才一些工具通过建立数学模型或概率模型来估计哪些转录本存在</li>
+<li>这里插播一个Coursera链接，也是我偶然发现的，在RNA这一章有3个讲解小视频，它在第里面个讲了我们流程的前两步：比对和组装。在讲比对的时候他就提到了如何做reads mapping，提到了2种方法来解决junction reads的问题：<ul>
+<li>第1种方法是Join Exon<ul>
+<li>先根据已知的转录本把所有排列组合方式算出来，然后把那些不能匹配的junction reads和它比对</li>
+<li>可以发现new isoform，但只能对于已知的extron来排列组合</li>
+</ul>
+</li>
+<li>第2种方法他说是类似于 BLAST 方法，（当然我这里没有查BLAST是什么）<ul>
+<li>把那些不能匹配的junction reads切成长度为 k 的多个种子重新mapping，相近的seed就合并在一起</li>
+<li>速度慢，但是可以解决未知的extron</li>
+</ul>
+</li>
+<li>TopHat2就结合了以上两种方式，以平衡速度和敏感度<blockquote>
+<p>BLAST方法</p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li>测序数据分析的第二步：assemble these reads into transcripts, and estimate their expression levels.<ul>
+<li>我们可以将转录本组装问题解释为<strong>有向图上的遍历问题</strong>。我们可以利用图论中的<strong>路径查找算法</strong>，在给不同的边缘分配不同权重的约束条件下，找到一条或多条最优路径及其相应的转录序列。</li>
+<li>Cufflinks是一个常用的工具，可以实现转录本组装。</li>
+<li>于是他就在第3个视频里面介绍cufflinks了，这个我还没看。等下次再补充。<blockquote>
+<p>Cufflinks</p>
+</blockquote>
+</li>
+</ul>
+</li>
+</ul>
+<hr>
+<ul>
+<li>下一个问题是RNA测序的步骤是怎样的？</li>
+<li>通常而言是这样三步：对齐、计数、差异表达。这里还提到对于执行每个步骤的“正确”方法是什么存在很多分歧，从而导致了许多替代方法，每种方法都有自己的优点和权衡。</li>
+<li>这里还提到说根据实现细节，其中一些阶段可能会组合操作。</li>
+<li>例如，kallisto 将在单个步骤中执行分配和丰度估计，cuffdiff 将作为单个操作执行读取计数和差异表达计算。</li>
+<li>当然，我认为这个图在解释RNA测序的步骤上面更加清晰：就是这样5个阶段。</li>
+</ul>
+<hr>
+<ul>
+<li>什么是添加标准物质控制？</li>
+<li>其目的是是评估实验中测量和再现数据的准确性，尤其是在涉及已知（预期）属性的情况下。</li>
+<li>方法是通过在样本中添加已知浓度和数量的标准物质（spike-in），研究人员可以评估实验的准确性、灵敏度和可重复性。这有助于确定实验条件下的技术偏差、变异性和测量误差。</li>
+<li>最终终于读到这个实例环节，我赶忙点进这个教程，进入下一步的环节</li>
+</ul>
+<hr>
+<ul>
+<li>当然，其实故事的发展并不是这样，我一开始就跳到这里打开了这个tutorial，然后发现我在IGV的安装上就尬住了，因为我对linux服务器一无所知，当然我可以在我的windows系统上面苟，但这是没有意义的，而这种分析工作我早晚得用服务器做。</li>
+</ul>
+<hr>
+<ul>
+<li>所以我选择跳过了这一节先看看后面有没有什么能做的，他果真提了还有3点需要做准备：一是linux命令行，二是R语言，三是给了一些阅读材料，我们多次提到的这张图就是来自这个综述，也是师兄推荐我读的。但这个太难读了，我读不了一点儿，又想起来师兄说biostar好读一点，从而产生了前面background部分的内容。那么这一节能做的内容我便是做完了。</li>
+</ul>
+<hr>
+<ul>
+<li>我其实发现了21版本的RNA小册子，打开发现软件是跳不过去的，tutorial是卡住了的，所以又出门瞎折腾了一些经受了一些失败，才想起来回到biostar里看它是怎么做的，然后发现其实超级简单，一步到位。</li>
+</ul>
+<hr>
+<ul>
+<li><p>当然没有一步到位，要格外注意网络问题和工作文件目录问题，所以做这4步就好:<br>第一步，将pip源改为国内源</p>
+</li>
+<li><p>修改 <code>~/.pip/pip.conf</code>(没有就创建一个文件夹及文件。文件夹要加“.”，表示是隐藏文件夹)</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">mkdir</span> ~/.pip/         <span class="comment"># Make directory</span></span><br><span class="line">$ <span class="built_in">cd</span> ~/.pip/            <span class="comment"># Change directory</span></span><br><span class="line">$ <span class="built_in">touch</span> pip.conf        <span class="comment"># Create pip.conf file</span></span><br><span class="line">$ nano ~/.pip/pip.conf  <span class="comment"># Edit pip.conf file</span></span><br></pre></td></tr></table></figure></li>
+<li><p>添加以下内容：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[global]</span><br><span class="line">index-url = https://pypi.tuna.tsinghua.edu.cn/simple</span><br><span class="line">[install]</span><br><span class="line">trusted-host=mirrors.aliyun.com</span><br></pre></td></tr></table></figure>
+<p>第二步，确保你在<code>/home/username/</code>，也就是<code>~/</code>路径下<br>第三步，运行biostar给出的自动化软件安装脚本</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Copy the following command to your terminal:</span></span><br><span class="line">curl http://data.biostarhandbook.com/install.sh | bash</span><br><span class="line"><span class="comment"># Apply the changes in the current terminal by running:</span></span><br><span class="line"><span class="built_in">source</span> ~/.bash_profile</span><br></pre></td></tr></table></figure>
+<p>最后，激活bioinfo环境，检查软件是否安装完毕</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">gmq@zhanglab ~</span><br><span class="line">$ conda activate bioinfo</span><br><span class="line">(bioinfo)</span><br><span class="line"></span><br><span class="line">gmq@zhanglab ~</span><br><span class="line">$ doctor.py</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>这个小程序很恶趣味，他会向你报告：做好了，陛下</p>
+</li>
+</ul>
+<hr>
+<p>它在后面还提到了如何选择文本编辑器的问题，我原本是没有理会，反正我们有记事本，但是它又说win和linux在这个行尾有点猫腻，我还特意在linux装了一下sublime，发现卡的要死，尝试了几种解决方法都不能解决之后我就速速remove了，回到我们朴素的nano，但是sublime装的过程无比丝滑，我不禁想到IGV可能也是这么搞定的，这个暂时还没有尝试，留到下次</p>
+<blockquote>
+<p>Linux编辑器、IGV软件安装</p>
+</blockquote>
+<hr>
+<ul>
+<li>接下来终于可以切入主题了。</li>
+<li>在biostar这本书里，主要是用一个叫做Golden Snidget的数据来进行分析</li>
+<li>题外话：Golden Snidget是哈利波特的魁地奇球赛的那个鸟</li>
+<li>在生物学中，”金标准 “数据是指具有已知特性的数据。通过在分析过程中重现已知属性，我们可以验证我们所使用的方法，并证明我们正确应用技术的能力。</li>
+<li>所以，可以从 “黄金标准 “数据的角度来演示几种 RNA-Seq 数据分析方法。我们将分析的数据是作为所谓的 “spike-in control”创建的，即在从细胞中提取的 mRNA 中加入已知丰度的 mRNA；然后将人工添加的标准数据数据和真实数据进行比较。然后在 Illumina 测序仪上对人工加标和真实数据进行测序。</li>
+<li>就像这个鸟它要么是直直地飞，用BORED表示，要么就不断改变方向，用EXCITED表示。</li>
+<li>在我们的数据中，转录本表达也受到类似如此完美的控制，甚至连基因都可以用一种描述其在两种状态下变化的方式来命名。例如，一个基因命名为 ABC-1000-UP-4，是因为在 BORED 状态下，每个细胞每时每刻都有 1000 份与基因 ABC 相对应的转录本。此外，该名称还表明，在 “兴奋”（EXCITED）状态下，同样的基因也是每个细胞每时每刻都有 4000 份与基因 ABC 相对应的转录本。二者间相差的倍数是4.</li>
+<li>因此，得益于这种独特的基因命名规则，我们可以检查任何中间结果并评估分析的进展情况。所以，我们的目标就是证明，从 RNA-Seq 数据开始，可以在多大程度上，以及在什么情况下，重现已知的基因调控行为。</li>
+</ul>
+<hr>
+<ul>
+<li>首先，要理解的概念是参考，</li>
+<li>我们有两种分析方法：1. 根据基因组进行量化 2. 对照转录组进行分类。我们两个都做。但在做之前要先理解我们都有什么：一个基因组、一个转录组，还有一个feature，就是我们的注释文件。</li>
+<li>我们可以通过这个命令来查看参考的基因组和转录组中有多少测序量。我们从第一行可以看到基因组有一个单独的染色体，大小是128756个碱基对。有92个转录本，转录本的总长度是82756个碱基对，最短的转录本是273个碱基对，最长的转录本是2022个碱基对，平均是899个。</li>
+<li>基因组和转录组的文件都是FASTA文件，通常是现有一个&gt;符号在首行，代表记录开始，紧随其后的就是测序ID这个ID可以是任意长的，所以常常也可以包含一些信息，后面的一行包含序列。还有一种文件是FASTQ文件，它则是有质量评测的信息，它以@开始首行，然后是测序数列，接下来是一个+，最后一行是和第二行相匹配的质量信息。这行鬼画符叫做Phred分数，其实是将表示错误可能性的两个数字映射为单个字符中，这样质量字符串的长度就会与序列的长度保持相同。</li>
+<li>当然，我对这两种数据格式的介绍也就到此为止了，有关介绍在书里的其他章节，我还没有看完</li>
+<li>注释信息则是长这个样子的，它把这一条染色体的外显子的位置和基因对应上。<blockquote>
+<p>数据格式介绍</p>
+</blockquote>
+</li>
+</ul>
+<hr>
+<ul>
+<li>这个部分是在把基因组和转录组比对，是一个选做步骤。做这一步的目的是要验证一下我们的转录本是否是按照我们的假设是与基因组匹配的。</li>
+<li>前两行做的是构建基因组的索引，<code>$IDX</code> 是指向基因组文件的路径。<code>hisat2-build</code> 是 Hisat2 工具的一个命令，用于构建基因组的索引。<code>$IDX $IDX</code> 指定了输入基因组文件和输出索引文件的路径。</li>
+<li>之后进行转录组的比对，<ul>
+<li><code>-x $IDX</code> 指定了要使用的基因组索引。</li>
+<li><code>-f</code> 表示输入文件为FASTA格式。</li>
+<li><code>-U refs/transcripts.fa</code> 指定了要比对的转录本文件。</li>
+<li><code>|</code> 管道符将 Hisat2 的输出传递给下一个命令。</li>
+<li><code>samtools sort &gt; refs/transcripts.bam</code> 对比对结果进行排序，并将结果保存为 BAM 文件。</li>
+</ul>
+</li>
+</ul>
+<hr>
+<ul>
+<li>现在我们已经对参考数据了如指掌，接下来需要了解一下我们的测序数据了。</li>
+<li>首先，像之前查看基因组和转录组的测序量那样查看我们的测序数据的测序量</li>
+<li>从中我们可以总结得出什么样的信息呢？<ol>
+<li>实验捕捉两种状态的数据： BORED和EXCITED。</li>
+<li>每种状态测量三次重复： 1, 2, 3.</li>
+<li>测序是成对的，以 R1 和 R2 表示。读取长度为 100bp。</li>
+<li>测量结果在样本中分布不均。</li>
+<li>EXCITED_1 样本采集的数据是 BORED_1 样本的两倍等等。</li>
+</ol>
+</li>
+<li>之后，可以把测序数据的id写到一个ids的文件里存好方面后面用。可以手写，也可以用上面这行代码来写入。</li>
+</ul>
+<hr>
+<ul>
+<li>我们可以基于RNA测序数据来完成对齐的操作了 。</li>
+<li>做法和之前的转录组与基因组对齐的方法类似，使用hisat完成。生成比对的BAM文件</li>
+<li>再根据feature文件，使用featureCount就可以完成量化操作了。</li>
+<li>那么上面这行是做什么的呢？其实是我一直故意没提到的部分，实际上，biastar在做上面的每一步的时候，都会把数据用IGV进行可视化，但是可视化的过程会比较卡，通过把BAM转换成bedGraph，最后得到bigWig，再使用IGV的时候就会更流畅快速了。那么IGV是怎么使用的，这部分也是在书的其他章节提到，还没有看，就放在下次在介绍了。</li>
+</ul>
+<hr>
+<ul>
+<li>最后，基于分类的 RNA-Seq 通过所谓的 “伪对齐 “工作。</li>
+<li>每个read不使用基因组作为参考，而是被分类为，或者说（分配给）一个转录本。</li>
+<li>由于有些read可以分配给多个转录本，因此还要运行内部重新分配算法，尝试在转录本的相似区域内重新分配读数，以验证其他观察到的限制条件。<blockquote>
+<p>Classification</p>
+</blockquote>
+</li>
+</ul>
+<hr>
+<p>所以我们相当于勉强在模拟数据上走了一下A路径，B和C有简单提到。<br>最后总结一下遗留没解决的问题：</p>
+<ul>
+<li>常识问题包括：BLAST是什么，各种数据格式的具体内容</li>
+<li>技术问题包括：编辑器、IGV等软件安装</li>
+<li>未完成主线内容包括：路线B、C是怎么实现的，师兄提到的节点都是怎么做的。这里简单提一下，因为我还没看相关资料或代码，只是大数据刚好微信推送了一个，恰好基本上师兄提到的这几个工具都有提到，我这里只提一下关于这几个节点的初步印象。</li>
+<li>我们前面提及过的<code>conda</code>,<code>mamba</code>都是管理和配置软件环境的工具，<code>conda</code>是用<code>python</code>编写的，<code>mamba</code>是<code>conda</code> 的加速实现，使用<code>C++</code>编写，旨在更快地执行包管理操作。</li>
+<li><code>prefetch</code>是<code>SRA Toolkit</code>（Sequence Read Archive Toolkit）工具集中的一个命令，用于从NCBI SRA数据库（Sequence Read Archive，序列读取存档）中预取（下载）数据。</li>
+<li>FastQc：实现测序数据质量检测与控制。它会生成一个报告。</li>
+<li>Trimmomatic：过滤低质量序列</li>
+<li>此外，我找到的这个tutorial基本没推进。</li>
+<li>本次内容中参考的链接是这几个，最后一个在本次内容中没提到，我暂时也没看，但也是我目测有很大学习价值的书，也列在这里。</li>
+</ul>
+<hr>
+<p>240109 RECOMMENDATION:<br>BOOK:<br>The BioStar Handbook -2021 (especially: RNA-seq by example)<br>LINK:</p>
+<ol>
+<li><a target="_blank" rel="noopener" href="https://pubmed.ncbi.nlm.nih.gov/31341269/">RNA sequencing: the teenage years</a></li>
+<li><a target="_blank" rel="noopener" href="https://rnabio.org/course/">RNABioTutorial</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.coursera.org/lecture/bioinformatics-pku/rna-seq-mapping-assembling-kSa63">Coursera</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.sc-best-practices.org/introduction/prior_art.html">Single-cell best practices</a></li>
+</ol>
+<hr>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>Author: </span><span class="post-copyright-info"><a href="http://www.monig.cn">Monica</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>Link: </span><span class="post-copyright-info"><a href="http://www.monig.cn/2024/01/12/test_240113/">http://www.monig.cn/2024/01/12/test_240113/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/do-not-read/">do-not-read</a></div><div class="post_share"><div class="social-share" data-image="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="next-post pull-full"><a href="/2024/01/02/test_240114/" title="240102 Report Draft of DESeq2 WorkFlow"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">Next</div><div class="next_info">240102 Report Draft of DESeq2 WorkFlow</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>Related Articles</span></div><div class="relatedPosts-list"><div><a href="/2024/01/02/test_240114/" title="240102 Report Draft of DESeq2 WorkFlow"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-01-02</div><div class="title">240102 Report Draft of DESeq2 WorkFlow</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Monica</div><div class="author-info__description">Learning is the only thing the mind never exhausts, fears, and regrets.</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">2</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">1</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">0</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/Monica-Gao"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/Monica-Gao" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="mailto:gaomengqi_01@163.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content"><center>主域名：<a href="https://www.monig.cn"><b><font color="#5ea6e5">monig.cn</font></b></a><br><a href="mailto:gaomengqi_01@163.com">📬：<b><font color="#a591e0">gaomengqi_01@163.com</font></b></a></center></div></div><div class="sticky_layout"></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2024 By Monica</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Toggle Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between Single-column and Double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="Back To Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=4.12.0"></script><script src="/js/main.js?v=4.12.0"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.32/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"></div><script src="https://cdn.jsdelivr.net/npm/pjax@0.2.8/pjax.min.js"></script><script>let pjaxSelectors = ["head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: false,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:send', function () {
+
+  // removeEventListener
+  btf.removeGlobalFnEvent('pjax')
+  btf.removeGlobalFnEvent('themeChange')
+
+  document.getElementById('rightside').classList.remove('rightside-show')
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+
+  typeof disqusjs === 'object' && disqusjs.destroy()
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof panguInit === 'function' && panguInit()
+
+  // google analytics
+  typeof gtag === 'function' && gtag('config', '', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+})
+
+document.addEventListener('pjax:error', e => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/404.html')
+  }
+})</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
