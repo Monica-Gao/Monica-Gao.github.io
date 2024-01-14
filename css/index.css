@@ -1744,7 +1744,7 @@ figure.highlight pre .javascript .function {
 #article-container pre,
 #article-container code {
   font-size: var(--global-font-size);
-  font-family: consolas, Menlo, 'PingFang SC', 'Microsoft YaHei', sans-serif !important;
+  font-family: Consolas !important;
 }
 #article-container code {
   padding: 2px 4px;
@@ -2655,7 +2655,7 @@ figure.highlight pre .javascript .function {
   margin: 0;
 }
 #recent-posts > .recent-post-item >.recent-post-info > .article-meta-wrap .article-meta-label {
-  display: none;
+  padding-right: 4px;
 }
 #recent-posts > .recent-post-item >.recent-post-info > .article-meta-wrap .article-meta-separator {
   margin: 0 6px;
@@ -3768,7 +3768,7 @@ h1.page-title + .tag-cloud-list {
   margin-right: 4px;
 }
 #post-info #post-meta .post-meta-label {
-  display: none;
+  margin-right: 4px;
 }
 #post-info #post-meta a {
   color: var(--light-grey);
