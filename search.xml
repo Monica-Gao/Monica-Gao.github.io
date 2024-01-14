@@ -4,27 +4,23 @@
   
     
     <entry>
-      <title>Reading Notes: What is cell type and how to define it</title>
-      <link href="/2024/01/14/What%20is%20cell%20type%20and%20how%20to%20define%20it/"/>
-      <url>/2024/01/14/What%20is%20cell%20type%20and%20how%20to%20define%20it/</url>
+      <title>Test Article</title>
+      <link href="/2024/01/15/Test/"/>
+      <url>/2024/01/15/Test/</url>
       
-        <content type="html"><![CDATA[<h2 id="PREFACE"><a href="#PREFACE" class="headerlink" title="PREFACE"></a>PREFACE</h2><p>Why read this review?</p><ul><li>在进行细胞类型注释的时候试图仅根据marker来推断一种细胞类型，因而发现了对细胞分类理解的不足。</li><li>如何对细胞类型进行注释：看别人选择的标记基因，根据知识储备选择标记基因</li></ul><p>What is the biological significances of this review?</p><ul><li>在于比较不同细胞类型在功能上的不同，了解健康和患病条件下细胞功能的动态变化</li><li>因此不能单单根据marker来推断一种细胞类型。</li></ul><p>General view of this review：</p><ul><li>这篇是cell的一篇综述，讲述什么是细胞类型以及如何定义细胞类型。</li><li>细胞类型是一个比较复杂的概念，和<strong>进化、表观遗传、转录表达、细胞状态</strong>都有很强的联系。</li></ul><p>PubMed Link: <a href="https://pubmed.ncbi.nlm.nih.gov/35868277/">What is a cell type and how to define it? - PubMed (nih.gov)</a><br>ScienceDirect Online: <a href="https://www.sciencedirect.com/science/article/pii/S0092867422007838?via=ihub">What is a cell type and how to define it? - ScienceDirect</a><br>ScienceDirect PDF: <a href="https://pdf.sciencedirectassets.com/272196/1-s2.0-S0092867421X00165/1-s2.0-S0092867422007838/main.pdf?X-Amz-Security-Token=IQoJb3JpZ2luX2VjEM///////////wEaCXVzLWVhc3QtMSJHMEUCIAbYxO1D2hJhtLmizeYnSbB38bHOE0dHXk9pwCzCMjnJAiEAtiP0o3bz2ntFpZ06NCcBlgVpuCVLiper76shUnc8z8EqswUIeBAFGgwwNTkwMDM1NDY4NjUiDCbK6FD65MK2AfDIfSqQBaTHllkKtxQmJlZGLNZrqbElTGMCNUHhX2fmlfwnlKHjISr5H3iFcjFccstWfjv9X/dUHmsQBznQknonrOC/V0Y0298pqLn5/cQ7/Ek5grLk0omE8v2ToGDgx9gqbLLYn7P3XDYuoQAD8qRA06n21L1dJuB7VgZzlqWf1NQCKFz50Crs9jLQxPlgmhyUgkW1uYhVCreVdt9QY5SuhdxBTuws43M7GSZth51O/J+UUt5Q2H5gwR71VWlwlCTSAS3Q22XwW1fcVo2BUxIvb2RHUcyGsbhr/aPUaU36Kvei1LDzWtK55rOpG3NcukIwDpTrq6euyNk9oHnktbFcYcd6Y5sl/PGml/w1NIvsXjT7b1O61kXIVM8Vw/eIwDhwsCv/RhIF+TdLebf77NLEUANgJpwAE5UvxY3i9wk1iylxuL7uZwV2LlaXYQ1tGCLxpks8gdMUE+y1Hnr8FkIYrgI1b/BYbSKy1+AO5y7BiJxHKo8qP/zqtKuHOd+awSnxfnTPzH+UjzdkGI4GY10sv07/YiVx0y/8+u/tXxXxASTx1gR+KX04rSgKNdcM0/hoBAr1Q5PHwN8b0nlSc+AgBkWJ+cxa6hL0F+VT1LIaqY3CrPVFaxpdEae2vD+GZ6FMZH1ZQBHSEEpWCXBUt6lWfhGZJasZjuPfj+FqtGXNEIxbulQT+yDIZV8GmMITF7MbwUL1QL9iBlvssl9cBPwDuQ9rPXt1lL6hWSmq7jUHURvFQXfiToEyUvFJE6M0xy7F7HijUV71Xx0i68PWVqk57aAkTyED43IBtwIyaac5PhibfOYJI+SsoilgJhzzwdZpusnbwvkHdsHIewKUsPkj98r19Cpb5z4P1fFIHRF9LhqFUHMrMJ7hj60GOrEBMCZKJEJK/D0IGpf2Oj+MGOdITS7vLTbHSvJhuFHGfBBb4bMuZMHBHz1shk3aDEGAOj74UrOjdhz/bEK5Be0wIpXGV57Orf0mtgQDlhsBrN/Ie1CNgODozGsBybv5wftEWrqPek47TxenRo8eXEIPpOdfgWBO3I5nnrOrVJn/U2fBbNFv3JpAOQYNDBcLgo/voXrcVePxYYIFBzD/6qo3gVeQgJX9HfPd4II+hjoTydR1&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20240114T152018Z&X-Amz-SignedHeaders=host&X-Amz-Expires=300&X-Amz-Credential=ASIAQ3PHCVTYVB7QI5FL/20240114/us-east-1/s3/aws4_request&X-Amz-Signature=02e29f022c547bd38b951de21b31ac1aea087741475fb219ac5d91a98d28c27e&hash=315574603e0d9d1565564096f6c09b1cc608558f33d187f9f92c6a02df81f9d0&host=68042c943591013ac2b2430a89b270f6af2c76d8dfd086a07176afe7c76c2c61&pii=S0092867422007838&tid=spdf-1ea9e88e-b4ee-4bee-b5d2-57f0e7b61673&sid=e1bd1e42521ab4425389cdd9b23f4abb6f7cgxrqa&type=client&tsoh=d3d3LnNjaWVuY2VkaXJlY3QuY29t&ua=19085b5b56590402075801&rr=8456dcb8f81e1fbe&cc=cn">What is a cell type and how to define it? (sciencedirectassets.com)</a></p><hr><h2 id="SUMMARY"><a href="#SUMMARY" class="headerlink" title="SUMMARY"></a>SUMMARY</h2><blockquote><p>Cell types are the basic functional units of an organism. Cell types exhibit diverse phenotypic properties at multiple levels, making them challenging to define, categorize, and understand. This review provides an overview of the basic principles of cell types rooted in evolution and development and discusses approaches to characterize and classify cell types and investigate how they contribute to the organism’s function, using the mammalian brain as a primary example. I propose a roadmap toward a conceptual framework and knowledge base of cell types that will enable a deeper understanding of the dynamic changes of cellular function under healthy and diseased conditions.</p></blockquote><p>细胞类型是有机体的基本单元。细胞类型在多个层面上表现出不同的表型特性，这使得它们的定义、分类和理解具有挑战性。这篇综述概述了植根于<strong>进化和发育</strong>的细胞类型的基本原理，并以<em>哺乳动物大脑</em>为主要例子，讨论了<strong>表征和分类细胞类型的方法</strong>，以及研究它们<strong>如何对生物体的功能做出贡献</strong>。我提出了一个通往细胞类型概念框架和知识库的路线图，这将使我们能够更深入地了解健康和患病条件下细胞功能的动态变化。</p><hr><h2 id="INTRODUCTION"><a href="#INTRODUCTION" class="headerlink" title="INTRODUCTION"></a>INTRODUCTION</h2><ul><li>了解生物体内<strong>细胞的结构和功能</strong>对于理解其整体功能至关重要。</li><li>将细胞分类将细胞分类大大降低了研究细胞结构和功能的复杂性。</li><li>缺乏一致和标准的细胞类型定义对于可重复的研究提出了挑战。</li><li>最近单细胞转录组学的进展改变了细胞分类方式，但在分类的准确性上仍存在问题。</li><li>该综述主要以哺乳动物大脑为例，探讨了有关细胞类型定义的关键问题。</li></ul><blockquote><p>行文思路：</p><ol><li>细胞结构功能对生物体功能很重要</li><li>细胞分类可以研究细胞结构功能</li><li>细胞分类标准存在问题；单细胞转录组改变了分类方式，但是也有问题</li><li>因此本文介绍和解决细胞分类定义的问题。</li></ol></blockquote><hr><h2 id="APPROACHES-TO-CHARACTERIZE-CELL-TYPES"><a href="#APPROACHES-TO-CHARACTERIZE-CELL-TYPES" class="headerlink" title="APPROACHES TO CHARACTERIZE CELL TYPES"></a>APPROACHES TO CHARACTERIZE CELL TYPES</h2><p><strong>–表征细胞类型的方法</strong></p><blockquote><p>Cell types in the brain and the body exhibit diverse properties in many modalities – molecular, morphological, physiological, and functional.</p></blockquote><p>大脑和躯体中的各种细胞类型在分子的（molecular）、形态的（morphological）、生理的（physiological）和功能的（functional）许多形式方面（modalities）都表现出不同的特性。</p>]]></content>
+        <content type="html"><![CDATA[<h2 id="Preface"><a href="#Preface" class="headerlink" title="Preface"></a>Preface</h2><p>This is a test article.</p><h2 id="First-part"><a href="#First-part" class="headerlink" title="First part"></a>First part</h2><p>Have a nice day!</p>]]></content>
       
       
       <categories>
           
-          <category> RNA-seq Reading Notes </category>
+          <category> Test </category>
           
       </categories>
       
       
         <tags>
             
-            <tag> RNA-seq </tag>
-            
-            <tag> Reading Notes </tag>
-            
-            <tag> Review </tag>
+            <tag> Test </tag>
             
         </tags>
       
